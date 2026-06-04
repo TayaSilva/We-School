@@ -173,6 +173,7 @@ function AboutPage() {
   const [heroPhase, setHeroPhase] = useState<HeroPhase>('idle')
   const [activeSlide, setActiveSlide] = useState(0)
   const [isMobileViewport, setIsMobileViewport] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const [isPortraitOrientation, setIsPortraitOrientation] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { language } = useLanguage()
@@ -184,6 +185,7 @@ function AboutPage() {
   const isDiscovering = heroPhase !== 'idle'
   const isShowingOrientation = heroPhase === 'orientation'
   const isCarouselVisible = heroPhase === 'carousel'
+  const isMobileLandscapeCarousel = (isMobileViewport || isTouchDevice) && !isPortraitOrientation && isCarouselVisible
 
   function resetHero() {
     setHeroPhase('idle')
@@ -202,7 +204,7 @@ function AboutPage() {
   function startDiscoverExperience() {
     setActiveSlide(0)
 
-    if (isMobileViewport) {
+    if (isMobileViewport || isTouchDevice) {
       if (!isPortraitOrientation) {
         setHeroPhase('carousel')
         setAboutMobileHeaderVisibility(true)
@@ -231,6 +233,23 @@ function AboutPage() {
 
     return () => {
       mediaQuery.removeEventListener('change', listener)
+    }
+  }, [])
+
+  useEffect(() => {
+    const touchQuery = window.matchMedia('(pointer: coarse)')
+
+    function handleTouchDeviceChange(event: MediaQueryListEvent | MediaQueryList) {
+      setIsTouchDevice(event.matches)
+    }
+
+    handleTouchDeviceChange(touchQuery)
+
+    const listener = (event: MediaQueryListEvent) => handleTouchDeviceChange(event)
+    touchQuery.addEventListener('change', listener)
+
+    return () => {
+      touchQuery.removeEventListener('change', listener)
     }
   }, [])
 
@@ -330,6 +349,17 @@ function AboutPage() {
         />
 
         <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1760px] items-center px-4 py-20 sm:px-6 lg:px-[48px]">
+          <button
+            type="button"
+            onClick={resetHero}
+            className={`absolute right-4 top-4 z-30 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/24 bg-neutral-950/70 text-xl font-semibold leading-none text-white shadow-[0_12px_30px_rgba(0,0,0,0.24)] backdrop-blur-sm transition-all duration-300 hover:bg-neutral-950/85 ${
+              isMobileLandscapeCarousel ? 'opacity-100' : 'pointer-events-none opacity-0'
+            }`}
+            aria-label={language === 'pt' ? 'Fechar carrossel' : 'Close carousel'}
+          >
+            ×
+          </button>
+
           <div
             className={`max-w-[760px] transition-all duration-700 ${
               isDiscovering
