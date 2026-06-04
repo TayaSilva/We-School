@@ -62,7 +62,7 @@ function BeyondClassroomSection() {
   return (
     <section className={`transition-colors duration-300 ${isDark ? 'bg-tertiary-700' : 'bg-[#A23FA1]'}`}>
       <div className="mx-auto max-w-[1760px] px-4 py-14 sm:px-6 sm:py-18 lg:px-[48px] lg:py-20">
-        <div>
+        <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-[540px]">
               <h2 className="font-heading text-[2rem] font-semibold text-white sm:text-[2.2rem]">
