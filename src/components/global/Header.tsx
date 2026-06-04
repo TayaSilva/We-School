@@ -43,12 +43,8 @@ function Header() {
   const isDark = theme === 'dark'
 
   return (
-    <header
-      className={`relative z-30 border-b py-4 transition-colors duration-300 sm:py-7 ${
-        isDark ? 'border-white/8 bg-neutral-950' : 'border-black/5 bg-neutral-50'
-      }`}
-    >
-      <div className="relative z-10 mx-auto w-full max-w-[1760px] px-4 pt-4 sm:px-6 sm:pt-7 lg:px-[48px]">
+    <header className="absolute inset-x-0 top-0 z-30 py-4 transition-colors duration-300 sm:py-7">
+      <div className="relative z-10 mx-auto w-full max-w-[1760px] px-4 sm:px-6 lg:px-[48px]">
         <div
           className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-3 shadow-[0_14px_44px_rgba(25,25,25,0.14)] transition-all duration-300 sm:px-5 lg:px-7 ${
             isDark

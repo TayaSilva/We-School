@@ -86,7 +86,7 @@ function HeroCarousel() {
   )
 
   return (
-    <section className="relative min-h-[760px] overflow-hidden sm:min-h-[820px]">
+    <section className="relative min-h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -107,7 +107,7 @@ function HeroCarousel() {
         }`}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1760px] flex-col px-4 pb-8 pt-[122px] sm:min-h-[820px] sm:px-6 sm:pb-10 sm:pt-[180px] lg:px-[48px]">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1760px] flex-col px-4 pb-8 pt-[122px] sm:px-6 sm:pb-10 sm:pt-[180px] lg:px-[48px]">
         <div className="flex flex-1 items-center">
           <div className="flex max-w-[680px] flex-col">
             <h1
