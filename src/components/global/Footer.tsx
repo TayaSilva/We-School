@@ -27,11 +27,11 @@ const content = {
   pt: {
     ctaTitle: 'Venha conhecer a We School de perto',
     ctaText:
-      'O futuro do seu filho começa com uma visita. Agende agora um horário para conhecer nossa estrutura e nossa equipe pedagógica.',
+      'O futuro do seu filho comeca com uma visita. Agende agora um horario para conhecer nossa estrutura e nossa equipe pedagogica.',
     ctaButton: 'Agendar visita',
     description:
-      'Formando líderes globais através de uma educação acolhedora e inspiradora.',
-    navigation: 'Navegação',
+      'Formando lideres globais atraves de uma educacao acolhedora e inspiradora.',
+    navigation: 'Navegacao',
     legal: 'Legal',
     contact: 'Contato',
     links: [
@@ -41,7 +41,7 @@ const content = {
       { label: 'Atividades', to: '/atividades' },
     ],
     legalLinks: ['Privacy Policy', 'Termos de Uso', 'Compliance'],
-    address: 'Av Tucuruvi, 2971 - São Paulo - SP',
+    address: 'Av Tucuruvi, 2971 - Sao Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contato@weschool.com.br',
     rights: '© 2024 We School. All rights reserved.',
@@ -64,7 +64,7 @@ const content = {
       { label: 'Activities', to: '/atividades' },
     ],
     legalLinks: ['Privacy Policy', 'Terms of Use', 'Compliance'],
-    address: '1000 Education Ave - Jardim das Artes, São Paulo - SP',
+    address: 'Av Tucuruvi, 2971 - Sao Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contact@weschool.com.br',
     rights: '© 2024 We School. All rights reserved.',
@@ -92,9 +92,9 @@ function Footer() {
 
   return (
     <footer className={`transition-colors duration-300 ${isDark ? 'bg-[#242827]' : 'bg-[#E9E5E3]'}`}>
-      <div className="mx-auto max-w-[1760px] px-4 pb-12 pt-20 sm:px-6 lg:px-[48px]">
+      <div className="w-full px-4 pb-12 pt-20 sm:px-6 lg:px-[48px]">
         <div
-          className={`mx-auto max-w-[1280px] rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
+          className={`w-full rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
             isDark
               ? 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#ff9fcb_0%,#ff8fb0_52%,#ff7b22_100%)] [background-size:22px_22px,100%_100%]'
               : 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#a00083_0%,#9b2aa1_48%,#ff6b13_100%)] [background-size:22px_22px,100%_100%]'
@@ -114,7 +114,7 @@ function Footer() {
           </Link>
         </div>
 
-        <div className="mx-auto grid max-w-[1280px] gap-10 pb-14 pt-20 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+        <div className="grid gap-10 pb-14 pt-20 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <div>
             <Link
               to="/"
@@ -180,7 +180,7 @@ function Footer() {
             </h3>
             <address className="mt-6 flex flex-col gap-5 not-italic">
               <a
-                href="https://maps.google.com/?q=Av.+da+Educação,+1000,+São+Paulo"
+                href="https://maps.google.com/?q=Av+Tucuruvi,+2971,+Sao+Paulo"
                 className={`group flex gap-4 text-base leading-[1.55] transition-colors duration-300 ${linkClass}`}
               >
                 <SvgIcon
@@ -213,7 +213,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className={`mx-auto flex max-w-[1280px] flex-col gap-4 border-t py-6 text-xs sm:flex-row sm:items-center sm:justify-between ${
+        <div className={`flex flex-col gap-4 border-t py-6 text-xs sm:flex-row sm:items-center sm:justify-between ${
           isDark ? 'border-white/10 text-white/68' : 'border-neutral-300 text-neutral-600'
         }`}>
           <p>{footerContent.rights}</p>
