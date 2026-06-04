@@ -27,11 +27,11 @@ const content = {
   pt: {
     ctaTitle: 'Venha conhecer a We School de perto',
     ctaText:
-      'O futuro do seu filho comeca com uma visita. Agende agora um horario para conhecer nossa estrutura e nossa equipe pedagogica.',
+      'O futuro do seu filho começa com uma visita. Agende agora um horário para conhecer nossa estrutura e nossa equipe pedagógica.',
     ctaButton: 'Agendar visita',
     description:
-      'Formando lideres globais atraves de uma educacao acolhedora e inspiradora.',
-    navigation: 'Navegacao',
+      'Formando líderes globais através de uma educação acolhedora e inspiradora.',
+    navigation: 'Navegação',
     legal: 'Legal',
     contact: 'Contato',
     links: [
@@ -41,7 +41,7 @@ const content = {
       { label: 'Atividades', to: '/atividades' },
     ],
     legalLinks: ['Privacy Policy', 'Termos de Uso', 'Compliance'],
-    address: 'Av Tucuruvi, 2971 - Sao Paulo - SP',
+    address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contato@weschool.com.br',
     rights: '© 2024 We School. All rights reserved.',
@@ -64,7 +64,7 @@ const content = {
       { label: 'Activities', to: '/atividades' },
     ],
     legalLinks: ['Privacy Policy', 'Terms of Use', 'Compliance'],
-    address: 'Av Tucuruvi, 2971 - Sao Paulo - SP',
+    address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contact@weschool.com.br',
     rights: '© 2024 We School. All rights reserved.',
@@ -94,7 +94,7 @@ function Footer() {
     <footer className={`transition-colors duration-300 ${isDark ? 'bg-[#242827]' : 'bg-[#E9E5E3]'}`}>
       <div className="w-full px-4 pb-12 pt-20 sm:px-6 lg:px-[48px]">
         <div
-          className={`w-full rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
+          className={`mx-auto max-w-[1280px] rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
             isDark
               ? 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#ff9fcb_0%,#ff8fb0_52%,#ff7b22_100%)] [background-size:22px_22px,100%_100%]'
               : 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#a00083_0%,#9b2aa1_48%,#ff6b13_100%)] [background-size:22px_22px,100%_100%]'
