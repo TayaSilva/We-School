@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { navLinks } from '../../data/navLinks'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -37,13 +37,36 @@ const navItemWidths = {
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isTemporarilyHidden, setIsTemporarilyHidden] = useState(false)
   const { language, setLanguage } = useLanguage()
   const { theme, setTheme } = useTheme()
   const labels = navLabels[language]
   const isDark = theme === 'dark'
 
+  useEffect(() => {
+    function handleVisibilityChange(event: Event) {
+      const customEvent = event as CustomEvent<{ hidden?: boolean }>
+      const hidden = Boolean(customEvent.detail?.hidden)
+      setIsTemporarilyHidden(hidden)
+
+      if (hidden) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('about-mobile-header-visibility', handleVisibilityChange)
+
+    return () => {
+      window.removeEventListener('about-mobile-header-visibility', handleVisibilityChange)
+    }
+  }, [])
+
   return (
-    <header className="absolute inset-x-0 top-0 z-30 py-4 transition-colors duration-300 sm:py-7">
+    <header
+      className={`absolute inset-x-0 top-0 z-30 py-4 transition-all duration-500 sm:py-7 ${
+        isTemporarilyHidden ? 'pointer-events-none opacity-0' : 'opacity-100'
+      }`}
+    >
       <div className="relative z-10 mx-auto w-full max-w-[1760px] px-4 sm:px-6 lg:px-[48px]">
         <div
           className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-3 shadow-[0_14px_44px_rgba(25,25,25,0.14)] transition-all duration-300 sm:px-5 lg:px-7 ${
