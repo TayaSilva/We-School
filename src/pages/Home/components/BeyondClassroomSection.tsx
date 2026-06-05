@@ -4,10 +4,10 @@ import { useTheme } from '../../../hooks/useTheme'
 
 const content = {
   pt: {
-    eyebrow: 'LANCAMENTO 2026',
-    title: 'Em breve: Natacao',
+    eyebrow: 'LANÇAMENTO 2026',
+    title: 'Em breve: Natação',
     description:
-      'Estamos construindo um centro aquatico de ultima geracao. Com piscina semi-olimpica aquecida e tratamento por ozonio, a natacao integrara nosso curriculo para promover saude e disciplina.',
+      'Estamos construindo um centro aquático de última geração. Com piscina semi-olímpica aquecida e tratamento por ozônio, a natação integrará nosso currículo para promover saúde e disciplina.',
     status: 'Obras em andamento',
     highlights: [
       {
@@ -23,8 +23,8 @@ const content = {
         ),
       },
       {
-        title: 'Eco-Sustentavel',
-        description: 'Tratamento por ozonio.',
+        title: 'Eco-Sustentável',
+        description: 'Tratamento por ozônio.',
         icon: (
           <svg viewBox="0 0 24 24" fill="none" className="h-full w-full" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 15c1.2.8 2.4 1.2 3.6 1.2 2 0 2-1.2 4-1.2s2 1.2 4 1.2 2-1.2 4-1.2c1.2 0 2.4.4 3.4 1.2" />

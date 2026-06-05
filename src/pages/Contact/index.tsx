@@ -98,7 +98,7 @@ function ContactPage() {
   const pageContent = content[language]
 
   return (
-    <section className={`transition-colors duration-300 ${isDark ? 'bg-[#171717]' : 'bg-[#f6f1ef]'}`}>
+    <section className={`transition-colors duration-300 ${isDark ? 'bg-[#171717]' : 'bg-[#FFECEE]'}`}>
       <div className="mx-auto max-w-[1760px] px-4 pb-16 pt-[132px] sm:px-6 sm:pb-20 sm:pt-[188px] lg:px-[48px] lg:pb-24 lg:pt-[196px]">
         <div className="w-full">
           <div className="mx-auto max-w-[760px] text-center">

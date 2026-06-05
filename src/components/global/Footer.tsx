@@ -13,6 +13,10 @@ type SvgIconProps = {
   className?: string
 }
 
+type FooterProps = {
+  showCta?: boolean
+}
+
 function SvgIcon({ svg, className = 'h-4 w-4' }: SvgIconProps) {
   return (
     <span
@@ -78,7 +82,7 @@ const socialLinks = [
   { label: 'Instagram', icon: instagramSvg, href: '#' },
 ] as const
 
-function Footer() {
+function Footer({ showCta = true }: FooterProps) {
   const { language } = useLanguage()
   const { theme } = useTheme()
   const isDark = theme === 'dark'
@@ -93,29 +97,31 @@ function Footer() {
   return (
     <footer className={`transition-colors duration-300 ${isDark ? 'bg-[#242827]' : 'bg-[#E9E5E3]'}`}>
       <div className="w-full px-4 pb-12 pt-20 sm:px-6 lg:px-[48px]">
-        <div
-          className={`mx-auto max-w-[1280px] rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
-            isDark
-              ? 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#ff9fcb_0%,#ff8fb0_52%,#ff7b22_100%)] [background-size:22px_22px,100%_100%]'
-              : 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#a00083_0%,#9b2aa1_48%,#ff6b13_100%)] [background-size:22px_22px,100%_100%]'
-          }`}
-        >
-          <h2 className="font-heading text-[16px] font-semibold text-white sm:text-[1.35rem]">
-            {footerContent.ctaTitle}
-          </h2>
-          <p className="mx-auto mt-4 max-w-[720px] text-[12px] font-medium leading-[1.55] text-white/92 sm:text-[0.95rem]">
-            {footerContent.ctaText}
-          </p>
-          <Link
-            to="/contato"
-            viewTransition
-            className="mt-8 inline-flex min-h-12 min-w-[178px] items-center justify-center rounded-[10px] bg-white px-6 text-sm font-semibold text-primary-600 shadow-[0_10px_24px_rgba(20,20,20,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-50 hover:text-primary-700"
+        {showCta ? (
+          <div
+            className={`mx-auto max-w-[1280px] rounded-[28px] px-6 py-14 text-center shadow-[0_18px_40px_rgba(30,22,20,0.12)] sm:px-10 ${
+              isDark
+                ? 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#ff9fcb_0%,#ff8fb0_52%,#ff7b22_100%)] [background-size:22px_22px,100%_100%]'
+                : 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#a00083_0%,#9b2aa1_48%,#ff6b13_100%)] [background-size:22px_22px,100%_100%]'
+            }`}
           >
-            {footerContent.ctaButton}
-          </Link>
-        </div>
+            <h2 className="font-heading text-[16px] font-semibold text-white sm:text-[1.35rem]">
+              {footerContent.ctaTitle}
+            </h2>
+            <p className="mx-auto mt-4 max-w-[720px] text-[12px] font-medium leading-[1.55] text-white/92 sm:text-[0.95rem]">
+              {footerContent.ctaText}
+            </p>
+            <Link
+              to="/contato"
+              viewTransition
+              className="mt-8 inline-flex min-h-12 min-w-[178px] items-center justify-center rounded-[10px] bg-white px-6 text-sm font-semibold text-primary-600 shadow-[0_10px_24px_rgba(20,20,20,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-50 hover:text-primary-700"
+            >
+              {footerContent.ctaButton}
+            </Link>
+          </div>
+        ) : null}
 
-        <div className="grid gap-10 pb-14 pt-20 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+        <div className={`grid gap-10 pb-14 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] ${showCta ? 'pt-20' : 'pt-0'}`}>
           <div>
             <Link
               to="/"

@@ -405,7 +405,7 @@ function ActivitiesPage() {
   const { theme } = useTheme()
   const isDark = theme === 'dark'
   const pageContent = content[language]
-  const [activeCard, setActiveCard] = useState<ActivityCard['id']>('cooking')
+  const [activeCard, setActiveCard] = useState<ActivityCard['id']>('ballet')
 
   return (
     <section className={`transition-colors duration-300 ${isDark ? 'bg-[#171717]' : 'bg-[#f6f1e8]'}`}>
@@ -454,6 +454,11 @@ function ActivitiesPage() {
                     key={card.id}
                     onMouseEnter={() => setActiveCard(card.id)}
                     onFocus={() => setActiveCard(card.id)}
+                    onPointerDown={(event) => {
+                      if (event.pointerType !== 'mouse') {
+                        setActiveCard(card.id)
+                      }
+                    }}
                     onClick={() => setActiveCard(card.id)}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' || event.key === ' ') {
@@ -462,8 +467,9 @@ function ActivitiesPage() {
                       }
                     }}
                     role="button"
+                    aria-pressed={isActive}
                     tabIndex={0}
-                    className={`group relative overflow-hidden rounded-[22px] border transition-all duration-500 ease-out ${
+                    className={`group relative cursor-pointer overflow-hidden rounded-[22px] border transition-all duration-500 ease-out ${
                       isDark ? 'border-white/8 bg-white/[0.04]' : 'border-neutral-200 bg-white'
                     } ${
                       isActive
@@ -525,7 +531,7 @@ function ActivitiesPage() {
             </div>
           </div>
 
-          <div className="mt-10 sm:mt-14">
+          <div className="mt-6 sm:mt-16 lg:mt-6">
             <article className="relative overflow-hidden rounded-[24px] border border-white/10 bg-neutral-950 min-h-[360px] sm:min-h-[480px] lg:min-h-[560px]">
               <img
                 src={roboticsStudentsImage}
@@ -564,7 +570,7 @@ function ActivitiesPage() {
             </article>
           </div>
 
-          <div className="mt-14 sm:mt-18">
+          <div className="mt-20 sm:mt-24 lg:mt-28">
             <div className={`border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
               <div>
                 <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-primary-700'}`}>
@@ -631,7 +637,7 @@ function ActivitiesPage() {
             </div>
           </div>
 
-          <div className="mt-14 sm:mt-20">
+          <div className="mt-28 sm:mt-32 lg:mt-40">
             <div className="text-center">
               <h2 className={`font-heading text-[16px] font-semibold sm:text-[2.3rem] ${isDark ? 'text-[#ffb7cf]' : 'text-primary-700'}`}>
                 {pageContent.councilTitle}
@@ -707,7 +713,7 @@ function ActivitiesPage() {
             </article>
 
             <article
-              className={`mt-20 overflow-hidden rounded-[28px] border shadow-[0_30px_80px_rgba(56,37,24,0.08)] sm:mt-24 lg:mt-28 ${
+              className={`mt-28 overflow-hidden rounded-[28px] border shadow-[0_30px_80px_rgba(56,37,24,0.08)] sm:mt-32 lg:mt-40 ${
                 isDark
                   ? 'border-white/10 bg-[linear-gradient(135deg,#221d1f_0%,#161616_100%)]'
                   : 'border-white/60 bg-[linear-gradient(135deg,#f9f6ef_0%,#f3ede2_48%,#efe8da_100%)]'

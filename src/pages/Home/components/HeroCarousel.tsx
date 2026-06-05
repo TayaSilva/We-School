@@ -62,7 +62,7 @@ const buttonLabels = {
 } as const
 
 function HeroCarousel() {
-  const [activeSlide, setActiveSlide] = useState(0)
+  const [activeSlide, setActiveSlide] = useState(1)
   const { language } = useLanguage()
   const { theme } = useTheme()
   const isDark = theme === 'dark'
