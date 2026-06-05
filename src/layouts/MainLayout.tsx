@@ -6,7 +6,7 @@ import { useTheme } from '../hooks/useTheme'
 function MainLayout() {
   const { theme } = useTheme()
   const { pathname } = useLocation()
-  const hasTopHero = pathname === '/' || pathname === '/sobre'
+  const hasTopHero = pathname === '/' || pathname === '/sobre' || pathname === '/contato'
 
   return (
     <div
