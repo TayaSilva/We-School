@@ -103,7 +103,6 @@ const content = {
       'Nossa proposta extracurricular vai al\u00e9m da sala de aula. Focamos no desenvolvimento socioemocional, f\u00edsico e tecnol\u00f3gico, preparando nossos alunos para os desafios do futuro com criatividade e autonomia.',
     sectionTitle: 'Ensino Fundamental',
     sectionDescription: 'Explora\u00e7\u00e3o, movimento e criatividade para os pequenos talentos.',
-    sectionCode: 'EST. 01',
     roboticsEyebrow: 'Tech & Future',
     roboticsTitle: 'Rob\u00f3tica e Inform\u00e1tica',
     roboticsDescription:
@@ -111,7 +110,6 @@ const content = {
     roboticsTags: ['Programa\u00e7\u00e3o', 'Hardware', 'IA'],
     advancedTitle: 'Ensino M\u00e9dio',
     advancedDescription: 'Trilhas de conhecimento e protagonismo juvenil.',
-    advancedCode: 'EST. 02',
     advancedEyebrow: 'Protagonismo Juvenil',
     advancedHeading: 'Um curr\u00edculo personalizado',
     advancedBody:
@@ -150,7 +148,7 @@ const content = {
     councilBannerBody:
       'O Gr\u00eamio organiza campanhas de arrecada\u00e7\u00e3o e eventos culturais que impactam toda a vizinhan\u00e7a, fomentando a empatia e a responsabilidade social.',
     councilCta: 'Conhecer Gr\u00eamio',
-    poolEyebrow: 'Lan\u00e7amento 2025',
+    poolEyebrow: 'Lan\u00e7amento 2026',
     poolTitle: 'Em breve: Nata\u00e7\u00e3o',
     poolDescription:
       'Estamos construindo um centro aqu\u00e1tico de \u00faltima gera\u00e7\u00e3o. Com piscina semi-ol\u00edmpica aquecida e tratamento por oz\u00f4nio, a nata\u00e7\u00e3o integrar\u00e1 nosso curr\u00edculo para promover sa\u00fade e disciplina.',
@@ -256,7 +254,6 @@ const content = {
       'Our extracurricular approach goes beyond the classroom. We focus on socio-emotional, physical, and technological development, preparing students for the future with creativity and autonomy.',
     sectionTitle: 'Elementary School',
     sectionDescription: 'Exploration, movement, and creativity for young talents.',
-    sectionCode: 'EST. 01',
     roboticsEyebrow: 'Tech & Future',
     roboticsTitle: 'Robotics and Computing',
     roboticsDescription:
@@ -264,7 +261,6 @@ const content = {
     roboticsTags: ['Programming', 'Hardware', 'AI'],
     advancedTitle: 'High School',
     advancedDescription: 'Knowledge tracks and student leadership.',
-    advancedCode: 'EST. 02',
     advancedEyebrow: 'Student Leadership',
     advancedHeading: 'A personalized curriculum',
     advancedBody:
@@ -303,7 +299,7 @@ const content = {
     councilBannerBody:
       'The Council organizes donation campaigns and cultural events that impact the entire neighborhood, encouraging empathy and social responsibility.',
     councilCta: 'Discover Council',
-    poolEyebrow: '2025 Launch',
+    poolEyebrow: '2026 Launch',
     poolTitle: 'Coming Soon: Swimming',
     poolDescription:
       'We are building a next-generation aquatic center. With a heated semi-olympic pool and ozone treatment, swimming will become part of our curriculum to promote health and discipline.',
@@ -438,7 +434,7 @@ function ActivitiesPage() {
           </div>
 
           <div className="mt-14">
-            <div className={`flex items-end justify-between gap-4 border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
+            <div className={`border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
               <div>
                 <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-primary-700'}`}>
                   {pageContent.sectionTitle}
@@ -447,10 +443,6 @@ function ActivitiesPage() {
                   {pageContent.sectionDescription}
                 </p>
               </div>
-
-              <span className={`text-[11px] uppercase tracking-[0.22em] ${isDark ? 'text-white/28' : 'text-neutral-400'}`}>
-                {pageContent.sectionCode}
-              </span>
             </div>
 
             <div className="mt-10 flex flex-col gap-4 lg:flex-row">
@@ -462,6 +454,15 @@ function ActivitiesPage() {
                     key={card.id}
                     onMouseEnter={() => setActiveCard(card.id)}
                     onFocus={() => setActiveCard(card.id)}
+                    onClick={() => setActiveCard(card.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        setActiveCard(card.id)
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
                     className={`group relative overflow-hidden rounded-[22px] border transition-all duration-500 ease-out ${
                       isDark ? 'border-white/8 bg-white/[0.04]' : 'border-neutral-200 bg-white'
                     } ${
@@ -490,7 +491,7 @@ function ActivitiesPage() {
 
                     <div className="relative flex h-full flex-col p-6 lg:p-7">
                       <span
-                        className={`inline-flex h-14 w-14 items-center justify-center rounded-full ${
+                        className={`inline-flex h-11 w-11 items-center justify-center rounded-full sm:h-14 sm:w-14 ${
                           isActive
                             ? 'bg-black/16 text-white'
                             : isDark
@@ -498,7 +499,7 @@ function ActivitiesPage() {
                               : 'bg-primary-50'
                         } ${isActive ? 'text-white' : card.accent}`}
                       >
-                        <SvgIcon svg={activityIcons[card.icon]} className="h-6 w-6" />
+                        <SvgIcon svg={activityIcons[card.icon]} className="h-5 w-5 sm:h-6 sm:w-6" />
                       </span>
 
                       <div className={`mt-auto transition-all duration-500 ${isActive ? 'max-w-[460px]' : 'max-w-[240px]'}`}>
@@ -564,7 +565,7 @@ function ActivitiesPage() {
           </div>
 
           <div className="mt-14 sm:mt-18">
-            <div className={`flex items-end justify-between gap-4 border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
+            <div className={`border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
               <div>
                 <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-primary-700'}`}>
                   {pageContent.advancedTitle}
@@ -573,10 +574,6 @@ function ActivitiesPage() {
                   {pageContent.advancedDescription}
                 </p>
               </div>
-
-              <span className={`text-[11px] uppercase tracking-[0.22em] ${isDark ? 'text-white/28' : 'text-neutral-400'}`}>
-                {pageContent.advancedCode}
-              </span>
             </div>
 
             <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:items-center">
