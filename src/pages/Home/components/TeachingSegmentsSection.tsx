@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import babyIcon from '../../../assets/icons/bebe.svg'
 import studyIcon from '../../../assets/icons/estudo.svg'
 import bookIcon from '../../../assets/icons/livro.svg'
@@ -151,8 +152,9 @@ function TeachingSegmentsSection() {
                     {card.period}
                   </p>
 
-                  <button
-                    type="button"
+                  <Link
+                    to="/ensino"
+                    viewTransition
                     className={`mt-auto inline-flex items-center justify-center gap-2 pt-3 text-[12px] font-semibold transition-colors sm:pt-4 sm:text-[0.9rem] ${
                       isDark
                         ? index === 0
@@ -169,7 +171,7 @@ function TeachingSegmentsSection() {
                   >
                     {card.action}
                     <span aria-hidden="true">-&gt;</span>
-                  </button>
+                  </Link>
                 </article>
               )
             })}

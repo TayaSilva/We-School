@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Footer from '../components/global/Footer'
 import Header from '../components/global/Header'
@@ -9,6 +10,10 @@ function MainLayout() {
   const hasTopHero =
     pathname === '/' || pathname === '/sobre' || pathname === '/ensino' || pathname === '/contato' || pathname === '/atividades'
   const showFooterCta = pathname === '/'
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
 
   return (
     <div
