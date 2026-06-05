@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import schoolBackground1 from '../../../assets/images/fundo-escola-1.png'
 import schoolBackground2 from '../../../assets/images/fundo-escola-2.png'
 import schoolBackground3 from '../../../assets/images/fundo-escola-3.png'
@@ -127,8 +128,9 @@ function HeroCarousel() {
             </p>
 
             <div className="mt-8 flex min-h-[100px] w-full flex-col items-center gap-2.5 sm:mt-11 sm:min-h-[56px] sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
-              <a
-                href="/sobre"
+              <Link
+                to="/sobre"
+                viewTransition
                 className={`inline-flex min-h-[44px] w-full items-center justify-center rounded-[12px] border px-4 text-center text-[0.8rem] font-semibold transition-all duration-300 sm:min-h-[56px] sm:min-w-[220px] sm:rounded-[14px] sm:px-7 sm:text-base ${
                   isDark
                     ? 'border-[#f0a8bf] bg-transparent text-[#f7cad7] hover:bg-white/6'
@@ -136,13 +138,14 @@ function HeroCarousel() {
                 }`}
               >
                 {activeButtons.secondaryButton}
-              </a>
-              <a
-                href="/contato"
+              </Link>
+              <Link
+                to="/contato"
+                viewTransition
                 className="inline-flex min-h-[44px] w-full items-center justify-center rounded-[12px] bg-primary-600 px-4 text-center text-[0.8rem] font-semibold text-white transition-all duration-300 hover:bg-primary-700 sm:min-h-[56px] sm:min-w-[196px] sm:rounded-[14px] sm:px-7 sm:text-base"
               >
                 {activeButtons.primaryButton}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

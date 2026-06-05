@@ -434,7 +434,7 @@ function ActivitiesPage() {
           </div>
 
           <div className="mt-14">
-            <div className={`border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
+            <div className={`border-b pb-4 text-center ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
               <div>
                 <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-primary-700'}`}>
                   {pageContent.sectionTitle}
@@ -571,7 +571,7 @@ function ActivitiesPage() {
           </div>
 
           <div className="mt-20 sm:mt-24 lg:mt-28">
-            <div className={`border-b pb-4 ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
+            <div className={`border-b pb-4 text-center ${isDark ? 'border-white/8' : 'border-neutral-200'}`}>
               <div>
                 <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-primary-700'}`}>
                   {pageContent.advancedTitle}
