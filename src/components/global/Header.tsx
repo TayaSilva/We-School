@@ -199,12 +199,16 @@ function Header() {
               <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <LanguageSwitcher
                   currentLanguage={language}
-                  onChange={setLanguage}
+                  onChange={(nextLanguage) => {
+                    setLanguage(nextLanguage)
+                    setIsMobileMenuOpen(false)
+                  }}
                   theme={theme}
                 />
                 <NavLink
                   to="/contato"
                   viewTransition
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex min-h-10 items-center justify-center rounded-full bg-primary-600 px-6 text-[12px] font-semibold text-white transition-all duration-300 hover:bg-primary-700 sm:min-h-11 sm:text-sm"
                 >
                   {labels.cta}

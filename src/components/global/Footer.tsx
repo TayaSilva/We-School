@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import emailSvg from '../../assets/icons/email.svg?raw'
 import instagramSvg from '../../assets/icons/instagram.svg?raw'
@@ -5,6 +6,7 @@ import linkSvg from '../../assets/icons/link.svg?raw'
 import locationSvg from '../../assets/icons/local.svg?raw'
 import phoneSvg from '../../assets/icons/telefone.svg?raw'
 import whatsappSvg from '../../assets/icons/whatsapp.svg?raw'
+import playStorePresaveImage from '../../assets/images/playstore-presave.svg'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useTheme } from '../../hooks/useTheme'
 
@@ -45,6 +47,11 @@ const content = {
       { label: 'Atividades', to: '/atividades' },
     ],
     legalLinks: ['Contato', 'Política de Privacidade', 'Trabalhe Conosco', 'Portal dos Pais'],
+    parentPortalTitle: 'Portal dos Pais em breve',
+    parentPortalText:
+      'Em breve teremos um portal onde os pais poderão acompanhar tudo da vida escolar das crianças, com informações, comunicados e novidades em um só lugar.',
+    parentPortalPresave: 'Faça o pré-save do app',
+    parentPortalClose: 'Fechar',
     address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contato@weschool.com.br',
@@ -68,6 +75,11 @@ const content = {
       { label: 'Activities', to: '/atividades' },
     ],
     legalLinks: ['Contact', 'Privacy Policy', 'Careers', 'Parent Portal'],
+    parentPortalTitle: 'Parent Portal coming soon',
+    parentPortalText:
+      'Soon we will have a portal where parents can follow every part of their children’s school life, with updates, notices, and news in one place.',
+    parentPortalPresave: 'Pre-save the app',
+    parentPortalClose: 'Close',
     address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contact@weschool.com.br',
@@ -83,6 +95,7 @@ const socialLinks = [
 ] as const
 
 function Footer({ showCta = true }: FooterProps) {
+  const [isParentPortalOpen, setIsParentPortalOpen] = useState(false)
   const { language } = useLanguage()
   const { theme } = useTheme()
   const isDark = theme === 'dark'
@@ -122,19 +135,19 @@ function Footer({ showCta = true }: FooterProps) {
         ) : null}
 
         <div className={`grid gap-10 pb-14 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] ${showCta ? 'pt-20' : 'pt-0'}`}>
-          <div>
+          <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
             <Link
               to="/"
               viewTransition
-               className={`font-heading text-[16px] font-bold sm:text-[1.35rem] ${headingClass}`}
+              className={`font-heading text-[16px] font-bold sm:text-[1.35rem] ${headingClass}`}
             >
               We School
             </Link>
-            <p className={`mt-5 max-w-[310px] text-[12px] leading-[1.65] sm:text-base ${textClass}`}>
+            <p className={`mx-auto mt-5 max-w-[310px] text-[12px] leading-[1.65] sm:mx-0 sm:text-base ${textClass}`}>
               {footerContent.description}
             </p>
 
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-8 flex items-center justify-center gap-4 sm:justify-start">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -175,11 +188,22 @@ function Footer({ showCta = true }: FooterProps) {
               {footerContent.legal}
             </h3>
             <div className="mt-6 flex flex-col gap-4">
-              {footerContent.legalLinks.map((item) => (
-                <span key={item} className={`text-[12px] sm:text-base ${textClass}`}>
-                  {item}
-                </span>
-              ))}
+              {footerContent.legalLinks.map((item) =>
+                item === 'Portal dos Pais' || item === 'Parent Portal' ? (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => setIsParentPortalOpen(true)}
+                    className={`w-fit text-left text-[12px] transition-colors duration-300 sm:text-base ${linkClass}`}
+                  >
+                    {item}
+                  </button>
+                ) : (
+                  <span key={item} className={`text-[12px] sm:text-base ${textClass}`}>
+                    {item}
+                  </span>
+                ),
+              )}
             </div>
           </div>
 
@@ -229,6 +253,64 @@ function Footer({ showCta = true }: FooterProps) {
           <p>{footerContent.made}</p>
         </div>
       </div>
+
+      {isParentPortalOpen ? (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/58 px-4 py-6 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="parent-portal-title"
+          onClick={() => setIsParentPortalOpen(false)}
+        >
+          <div
+            className={`relative w-full max-w-[520px] overflow-hidden rounded-[24px] border p-6 text-center shadow-[0_28px_80px_rgba(0,0,0,0.28)] sm:p-8 ${
+              isDark ? 'border-white/12 bg-[#242827] text-white' : 'border-white/70 bg-[#fff5fa] text-neutral-900'
+            }`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label={footerContent.parentPortalClose}
+              onClick={() => setIsParentPortalOpen(false)}
+              className={`absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-[18px] transition-colors ${
+                isDark ? 'bg-white/8 text-white hover:bg-white/14' : 'bg-primary-50 text-primary-700 hover:bg-primary-100'
+              }`}
+            >
+              ×
+            </button>
+
+            <span className={`mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full font-heading text-[1.1rem] font-bold ${
+              isDark ? 'bg-[#ffb7cf]/16 text-[#ffb7cf]' : 'bg-primary-100 text-primary-700'
+            }`}>
+              WE
+            </span>
+
+            <h2 id="parent-portal-title" className={`mt-5 font-heading text-[1.55rem] font-semibold sm:text-[2rem] ${
+              isDark ? 'text-[#ffb7cf]' : 'text-primary-700'
+            }`}>
+              {footerContent.parentPortalTitle}
+            </h2>
+
+            <p className={`mx-auto mt-4 max-w-[420px] text-[12px] leading-[1.75] sm:text-[0.98rem] ${
+              isDark ? 'text-white/76' : 'text-neutral-700'
+            }`}>
+              {footerContent.parentPortalText}
+            </p>
+
+            <p className={`mt-7 text-[12px] font-semibold uppercase tracking-[0.18em] ${
+              isDark ? 'text-white/62' : 'text-primary-600'
+            }`}>
+              {footerContent.parentPortalPresave}
+            </p>
+
+            <img
+              src={playStorePresaveImage}
+              alt={footerContent.parentPortalPresave}
+              className="mx-auto mt-3 h-auto w-full max-w-[250px]"
+            />
+          </div>
+        </div>
+      ) : null}
     </footer>
   )
 }
