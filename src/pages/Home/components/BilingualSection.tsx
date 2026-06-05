@@ -53,7 +53,7 @@ function BilingualSection() {
             </span>
 
             <h2
-              className={`mt-6 font-heading text-[2rem] font-semibold leading-[1.12] sm:text-[2.4rem] lg:text-[2.9rem] ${
+              className={`mt-6 font-heading text-[16px] font-semibold leading-[1.2] sm:text-[2.4rem] lg:text-[2.9rem] ${
                 isDark ? 'text-[#d98ae5]' : 'text-tertiary-700'
               }`}
             >
@@ -61,7 +61,7 @@ function BilingualSection() {
             </h2>
 
             <p
-              className={`mt-6 max-w-[560px] text-[1rem] leading-[1.85] sm:text-[1.05rem] ${
+              className={`mt-6 max-w-[560px] text-[12px] leading-[1.75] sm:text-[1.05rem] ${
                 isDark ? 'text-white/72' : 'text-neutral-700'
               }`}
             >
@@ -83,7 +83,7 @@ function BilingualSection() {
                     />
                   </span>
                   <span
-                    className={`text-[0.98rem] ${
+                    className={`text-[12px] sm:text-[0.98rem] ${
                       isDark ? 'text-white/88' : 'text-neutral-900'
                     }`}
                   >

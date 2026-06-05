@@ -19,18 +19,18 @@ type CardItem = {
 const content = {
   pt: {
     title: 'Diferenciais que Transformam',
-    subtitle: 'Por que somos a escolha certa para a sua família?',
+    subtitle: 'Por que somos a escolha certa para a sua fam\u00edlia?',
     items: [
-      { label: 'Bilíngue', icon: 'globe' },
+      { label: 'Bil\u00edngue', icon: 'globe' },
       { label: 'Professores Qualificados', icon: 'badge' },
       { label: 'Ambiente Acolhedor', icon: 'smile' },
       { label: 'Pedagogia Moderna', icon: 'sparkles' },
       { label: 'Tecnologia', icon: 'monitor' },
-      { label: 'Acompanhamento Próximo', icon: 'eye' },
-      { label: 'Comunicação com a Família', icon: 'family' },
+      { label: 'Acompanhamento Pr\u00f3ximo', icon: 'eye' },
+      { label: 'Comunica\u00e7\u00e3o com a Fam\u00edlia', icon: 'family' },
       { label: 'Estrutura Completa', icon: 'building' },
       { label: 'Extracurriculares', icon: 'activities' },
-      { label: 'Formação Integral', icon: 'target' },
+      { label: 'Forma\u00e7\u00e3o Integral', icon: 'target' },
     ] satisfies CardItem[],
   },
   en: {
@@ -207,10 +207,10 @@ function DifferentialsCarouselSection() {
       <div className="mx-auto max-w-[1760px] px-4 py-14 sm:px-6 sm:py-18 lg:px-[48px] lg:py-22">
         <div>
           <div className="text-center">
-            <h2 className={`font-heading text-[2rem] font-semibold ${isDark ? 'text-white' : 'text-neutral-950'}`}>
+            <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-neutral-950'}`}>
               {sectionContent.title}
             </h2>
-            <p className={`mt-3 text-[1rem] ${isDark ? 'text-white/68' : 'text-neutral-600'}`}>
+            <p className={`mt-3 text-[12px] sm:text-[1rem] ${isDark ? 'text-white/68' : 'text-neutral-600'}`}>
               {sectionContent.subtitle}
             </p>
           </div>
@@ -224,7 +224,7 @@ function DifferentialsCarouselSection() {
                 {carouselItems.map((item, index) => (
                   <article
                     key={`${item.label}-${index}`}
-                    className={`flex h-[112px] w-[152px] shrink-0 flex-col items-center justify-center rounded-[18px] border px-4 text-center transition-all duration-300 ${
+                    className={`flex h-[82px] w-[108px] shrink-0 flex-col items-center justify-center rounded-[14px] border px-2.5 text-center transition-all duration-300 sm:h-[112px] sm:w-[152px] sm:rounded-[18px] sm:px-4 ${
                       isDark
                         ? 'border-white/8 bg-white/[0.04] text-white hover:border-white/18 hover:bg-white/[0.08] hover:shadow-[0_12px_26px_rgba(10,10,10,0.22)]'
                         : 'border-neutral-200 bg-white text-neutral-900 shadow-[0_8px_22px_rgba(28,22,21,0.05)] hover:border-neutral-300 hover:shadow-[0_12px_26px_rgba(28,22,21,0.1)]'
@@ -254,7 +254,7 @@ function DifferentialsCarouselSection() {
                                           : 'text-primary-600'
                       }`}
                     />
-                    <p className="mt-4 text-[0.95rem] font-medium leading-[1.35]">{item.label}</p>
+                    <p className="mt-2 text-[12px] font-medium leading-[1.2] sm:mt-4 sm:text-[0.95rem] sm:leading-[1.35]">{item.label}</p>
                   </article>
                 ))}
               </div>
@@ -263,7 +263,7 @@ function DifferentialsCarouselSection() {
                 {carouselItems.map((item, index) => (
                   <article
                     key={`${item.label}-clone-${index}`}
-                    className={`flex h-[112px] w-[152px] shrink-0 flex-col items-center justify-center rounded-[18px] border px-4 text-center transition-all duration-300 ${
+                    className={`flex h-[82px] w-[108px] shrink-0 flex-col items-center justify-center rounded-[14px] border px-2.5 text-center transition-all duration-300 sm:h-[112px] sm:w-[152px] sm:rounded-[18px] sm:px-4 ${
                       isDark
                         ? 'border-white/8 bg-white/[0.04] text-white'
                         : 'border-neutral-200 bg-white text-neutral-900 shadow-[0_8px_22px_rgba(28,22,21,0.05)]'
@@ -293,7 +293,7 @@ function DifferentialsCarouselSection() {
                                           : 'text-primary-600'
                       }`}
                     />
-                    <p className="mt-4 text-[0.95rem] font-medium leading-[1.35]">{item.label}</p>
+                    <p className="mt-2 text-[12px] font-medium leading-[1.2] sm:mt-4 sm:text-[0.95rem] sm:leading-[1.35]">{item.label}</p>
                   </article>
                 ))}
               </div>

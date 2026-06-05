@@ -72,7 +72,7 @@ function TeachingSegmentsSection() {
       <div className="mx-auto max-w-[1760px] px-4 py-14 sm:px-6 sm:py-18 lg:px-[48px] lg:py-24">
         <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-col items-center text-center">
-            <h2 className={`font-heading text-[2rem] font-semibold ${isDark ? 'text-white' : 'text-neutral-950'}`}>
+            <h2 className={`font-heading text-[16px] font-semibold sm:text-[2rem] ${isDark ? 'text-white' : 'text-neutral-950'}`}>
               {sectionContent.title}
             </h2>
             <span className={`mt-3 h-0.5 w-14 rounded-full ${isDark ? 'bg-secondary-300' : 'bg-secondary-600'}`} />
@@ -95,14 +95,14 @@ function TeachingSegmentsSection() {
               return (
                 <article
                   key={card.title}
-                  className={`group flex min-h-[330px] flex-col rounded-[18px] border p-6 text-center transition-all duration-300 ${
+                  className={`group flex min-h-[292px] flex-col rounded-[16px] border p-5 text-center transition-all duration-300 sm:min-h-[330px] sm:rounded-[18px] sm:p-6 ${
                     isDark
                       ? `border-white/5 bg-white/[0.05] ${hoverBorderClass}`
                       : `border-neutral-200 bg-white shadow-[0_10px_25px_rgba(30,24,23,0.05)] ${hoverBorderClass}`
                   }`}
                 >
                   <div
-                    className={`mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full ${
+                    className={`mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12 ${
                       index === 0
                         ? isDark
                           ? 'bg-[#3a2a31]'
@@ -116,11 +116,11 @@ function TeachingSegmentsSection() {
                             : 'bg-[#f1e5f7]'
                     }`}
                   >
-                    <img src={icons[index]} alt="" className="h-5 w-5" />
+                    <img src={icons[index]} alt="" className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
 
                   <h3
-                    className={`mt-5 font-heading text-[1.4rem] font-semibold ${
+                    className={`mt-4 font-heading text-[16px] font-semibold sm:mt-5 sm:text-[1.4rem] ${
                       index === 0
                         ? isDark
                           ? 'text-[#ffb7cf]'
@@ -138,22 +138,22 @@ function TeachingSegmentsSection() {
                   </h3>
 
                   <p
-                    className={`mt-4 min-h-[88px] text-[0.94rem] leading-[1.55] ${
+                    className={`mt-3 min-h-[72px] text-[12px] leading-[1.5] sm:mt-4 sm:min-h-[88px] sm:text-[0.94rem] sm:leading-[1.55] ${
                       isDark ? 'text-white/72' : 'text-neutral-600'
                     }`}
                   >
                     {card.description}
                   </p>
 
-                  <div className={`mx-auto mt-5 h-px w-full ${isDark ? 'bg-white/10' : 'bg-neutral-200'}`} />
+                  <div className={`mx-auto mt-4 h-px w-full sm:mt-5 ${isDark ? 'bg-white/10' : 'bg-neutral-200'}`} />
 
-                  <p className={`mt-4 text-[0.8rem] ${isDark ? 'text-white/62' : 'text-neutral-500'}`}>
+                  <p className={`mt-3 text-[12px] sm:mt-4 sm:text-[0.8rem] ${isDark ? 'text-white/62' : 'text-neutral-500'}`}>
                     {card.period}
                   </p>
 
                   <button
                     type="button"
-                    className={`mt-auto inline-flex items-center justify-center gap-2 pt-4 text-[0.9rem] font-semibold transition-colors ${
+                    className={`mt-auto inline-flex items-center justify-center gap-2 pt-3 text-[12px] font-semibold transition-colors sm:pt-4 sm:text-[0.9rem] ${
                       isDark
                         ? index === 0
                           ? 'text-[#ffb7cf]'

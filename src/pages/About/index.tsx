@@ -2,10 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import carinhoIcon from '../../assets/icons/carinho.png'
 import fogueteIcon from '../../assets/icons/foguete.png'
 import visaoIcon from '../../assets/icons/visao.png'
-import classroomImage from '../../assets/images/alunos-sala.png'
-import schoolImage from '../../assets/images/fundo-escola.png'
-import campusImage from '../../assets/images/fundo-escola-1.png'
-import playgroundImage from '../../assets/images/sala-pintura.png'
+import infirmaryImage from '../../assets/images/enfermaria.png'
+import oldFacadeImage from '../../assets/images/fachada-antiga.png'
+import schoolCourtyardImage from '../../assets/images/fundo-escola-2.png'
+import schoolFacadeImage from '../../assets/images/fundo-escola-3.png'
+import computerLabImage from '../../assets/images/informatica.png'
+import scienceLabImage from '../../assets/images/laboratorio.png'
+import openCourtImage from '../../assets/images/quadra-aberta.png'
+import indoorCourtImage from '../../assets/images/quadra-fechada.png'
+import cafeteriaImage from '../../assets/images/refeitorio.png'
+import classroomImage from '../../assets/images/sala-de-aula.png'
+import balletRoomImage from '../../assets/images/sala-de-bale.png'
+import judoRoomImage from '../../assets/images/sala-do-judo.png'
+import cookingRoomImage from '../../assets/images/sala-culinaria.png'
+import paintingRoomImage from '../../assets/images/sala-pintura.png'
+import roboticsRoomImage from '../../assets/images/sala-robotica.png'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useTheme } from '../../hooks/useTheme'
 
@@ -13,63 +24,185 @@ type HeroPhase = 'idle' | 'orientation' | 'carousel'
 
 const slides = [
   {
-    image: playgroundImage,
+    image: paintingRoomImage,
     alt: 'Sala de pintura da We School',
     mobilePosition: 'object-[68%_center]',
     pt: {
       label: 'Sala de pintura',
-      description:
-        'Um espaço criativo para experimentar cores, formas e novas maneiras de aprender.',
+      description: 'Criatividade com cores e formas.',
     },
     en: {
       label: 'Painting room',
-      description:
-        'A creative space to explore colors, shapes, and new ways of learning.',
+      description: 'Creativity with colors and shapes.',
     },
   },
   {
     image: classroomImage,
-    alt: 'Alunos em sala de aula',
-    mobilePosition: 'object-[72%_center]',
+    alt: 'Sala de aula da We School',
+    mobilePosition: 'object-[58%_center]',
     pt: {
       label: 'Sala de aula',
-      description:
-        'Ambientes acolhedores para uma rotina bilíngue, colaborativa e cheia de descobertas.',
+      description: 'Aprendizado bilíngue todos os dias.',
     },
     en: {
       label: 'Classroom',
-      description:
-        'Welcoming environments for a bilingual, collaborative routine full of discovery.',
+      description: 'Bilingual learning every day.',
     },
   },
   {
-    image: schoolImage,
-    alt: 'Campus da We School',
+    image: balletRoomImage,
+    alt: 'Sala de balé da We School',
+    mobilePosition: 'object-[54%_center]',
+    pt: {
+      label: 'Sala de balé',
+      description: 'Movimento, ritmo e expressão.',
+    },
+    en: {
+      label: 'Ballet room',
+      description: 'Movement, rhythm and expression.',
+    },
+  },
+  {
+    image: judoRoomImage,
+    alt: 'Sala de judô da We School',
+    mobilePosition: 'object-[56%_center]',
+    pt: {
+      label: 'Sala de judô',
+      description: 'Disciplina, foco e confiança.',
+    },
+    en: {
+      label: 'Judo room',
+      description: 'Discipline, focus and confidence.',
+    },
+  },
+  {
+    image: scienceLabImage,
+    alt: 'Laboratório da We School',
     mobilePosition: 'object-[58%_center]',
     pt: {
-      label: 'Campus We School',
-      description:
-        'Estrutura pensada para inspirar autonomia, convivência e aprendizado todos os dias.',
+      label: 'Laboratório',
+      description: 'Ciência com prática e curiosidade.',
     },
     en: {
-      label: 'We School campus',
-      description:
-        'A structure designed to inspire autonomy, connection, and everyday learning.',
+      label: 'Science lab',
+      description: 'Science with practice and curiosity.',
     },
   },
   {
-    image: campusImage,
-    alt: 'Entrada da We School',
-    mobilePosition: 'object-[62%_center]',
+    image: roboticsRoomImage,
+    alt: 'Sala de robótica da We School',
+    mobilePosition: 'object-[55%_center]',
     pt: {
-      label: 'Entrada da escola',
-      description:
-        'Um primeiro contato com a identidade da We School e sua proposta de educação global.',
+      label: 'Sala de robótica',
+      description: 'Tecnologia para criar soluções.',
     },
     en: {
-      label: 'School entrance',
-      description:
-        'A first look at We School’s identity and its vision for global education.',
+      label: 'Robotics room',
+      description: 'Technology to create solutions.',
+    },
+  },
+  {
+    image: cookingRoomImage,
+    alt: 'Sala de culinária da We School',
+    mobilePosition: 'object-[52%_center]',
+    pt: {
+      label: 'Sala de culinária',
+      description: 'Aprender com sabor e autonomia.',
+    },
+    en: {
+      label: 'Cooking room',
+      description: 'Learning with flavor and autonomy.',
+    },
+  },
+  {
+    image: computerLabImage,
+    alt: 'Sala de informática da We School',
+    mobilePosition: 'object-[50%_center]',
+    pt: {
+      label: 'Informática',
+      description: 'Conexão, pesquisa e criação digital.',
+    },
+    en: {
+      label: 'Computer lab',
+      description: 'Connection, research and digital creation.',
+    },
+  },
+  {
+    image: cafeteriaImage,
+    alt: 'Refeitório da We School',
+    mobilePosition: 'object-[52%_center]',
+    pt: {
+      label: 'Refeitório',
+      description: 'Pausas acolhedoras para conviver.',
+    },
+    en: {
+      label: 'Cafeteria',
+      description: 'Welcoming breaks to connect.',
+    },
+  },
+  {
+    image: infirmaryImage,
+    alt: 'Enfermaria da We School',
+    mobilePosition: 'object-[50%_center]',
+    pt: {
+      label: 'Enfermaria',
+      description: 'Cuidado e segurança todos os dias.',
+    },
+    en: {
+      label: 'Infirmary',
+      description: 'Care and safety every day.',
+    },
+  },
+  {
+    image: openCourtImage,
+    alt: 'Quadra aberta da We School',
+    mobilePosition: 'object-[62%_center]',
+    pt: {
+      label: 'Quadra aberta',
+      description: 'Movimento, esporte e convivência.',
+    },
+    en: {
+      label: 'Open court',
+      description: 'Movement, sports and connection.',
+    },
+  },
+  {
+    image: indoorCourtImage,
+    alt: 'Quadra fechada da We School',
+    mobilePosition: 'object-[50%_center]',
+    pt: {
+      label: 'Quadra fechada',
+      description: 'Esporte com conforto em toda rotina.',
+    },
+    en: {
+      label: 'Indoor court',
+      description: 'Sports with comfort every day.',
+    },
+  },
+  {
+    image: schoolCourtyardImage,
+    alt: 'Área externa da We School',
+    mobilePosition: 'object-[60%_center]',
+    pt: {
+      label: 'Biblioteca',
+      description: 'Leitura, pesquisa e descoberta.',
+    },
+    en: {
+      label: 'Library',
+      description: 'Reading, research and discovery.',
+    },
+  },
+  {
+    image: schoolFacadeImage,
+    alt: 'Fachada da We School',
+    mobilePosition: 'object-[58%_center]',
+    pt: {
+      label: 'Teatro',
+      description: 'Arte, palco e expressão.',
+    },
+    en: {
+      label: 'Theater',
+      description: 'Art, stage and expression.',
     },
   },
 ] as const
@@ -185,6 +318,7 @@ function AboutPage() {
   const isDiscovering = heroPhase !== 'idle'
   const isShowingOrientation = heroPhase === 'orientation'
   const isCarouselVisible = heroPhase === 'carousel'
+  const isMobileLandscape = (isMobileViewport || isTouchDevice) && !isPortraitOrientation
   const isMobileLandscapeCarousel = (isMobileViewport || isTouchDevice) && !isPortraitOrientation && isCarouselVisible
 
   function resetHero() {
@@ -283,6 +417,20 @@ function AboutPage() {
   }, [isShowingOrientation])
 
   useEffect(() => {
+    if (!isShowingOrientation) {
+      return
+    }
+
+    if (!isPortraitOrientation) {
+      const timeoutId = window.setTimeout(() => {
+        setHeroPhase('carousel')
+      }, 700)
+
+      return () => window.clearTimeout(timeoutId)
+    }
+  }, [isPortraitOrientation, isShowingOrientation])
+
+  useEffect(() => {
     if (!isCarouselVisible) {
       return
     }
@@ -348,7 +496,11 @@ function AboutPage() {
           }`}
         />
 
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1760px] items-center px-4 py-20 sm:px-6 lg:px-[48px]">
+        <div
+          className={`relative z-10 mx-auto flex min-h-screen w-full max-w-[1760px] px-4 sm:px-6 lg:px-[48px] ${
+            isMobileLandscape ? 'items-end pb-8 pt-28' : 'items-center py-20'
+          }`}
+        >
           <button
             type="button"
             onClick={resetHero}
@@ -365,18 +517,32 @@ function AboutPage() {
               isDiscovering
                 ? 'pointer-events-none translate-y-4 opacity-0'
                 : 'translate-y-0 opacity-100'
-            }`}
+            } ${isMobileLandscape ? 'max-w-[360px]' : ''}`}
           >
-            <h1 className="font-heading text-[2.35rem] font-bold leading-[1.05] text-white sm:text-[3rem] lg:text-[3.4rem]">
+            <h1
+              className={`font-heading font-bold text-white ${
+                isMobileLandscape
+                  ? 'text-[1.9rem] leading-[0.98]'
+                  : 'text-[2.35rem] leading-[1.05] sm:text-[3rem] lg:text-[3.4rem]'
+              }`}
+            >
               {pageContent.title}
             </h1>
-            <p className="mt-5 max-w-[740px] text-[1rem] font-medium leading-[1.65] text-white sm:text-[1.08rem]">
+            <p
+              className={`mt-5 font-medium text-white ${
+                isMobileLandscape
+                  ? 'max-w-[360px] text-[0.9rem] leading-[1.5]'
+                  : 'max-w-[740px] text-[1rem] leading-[1.65] sm:text-[1.08rem]'
+              }`}
+            >
               {pageContent.description}
             </p>
             <button
               type="button"
               onClick={startDiscoverExperience}
-              className="mt-7 inline-flex min-h-12 min-w-[180px] items-center justify-center rounded-[4px] bg-primary-600 px-8 text-sm font-bold uppercase text-white transition-all duration-300 hover:bg-primary-700"
+              className={`mt-7 inline-flex items-center justify-center rounded-[4px] bg-primary-600 text-sm font-bold uppercase text-white transition-all duration-300 hover:bg-primary-700 ${
+                isMobileLandscape ? 'min-h-10 min-w-[160px] px-6' : 'min-h-12 min-w-[180px] px-8'
+              }`}
             >
               {pageContent.button}
             </button>
@@ -388,8 +554,8 @@ function AboutPage() {
             }`}
             aria-hidden={!isShowingOrientation}
           >
-            <div className="max-w-[280px] rounded-[18px] border border-white/18 bg-neutral-950/62 px-6 py-6 text-center text-white shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-md">
-              <p className="font-heading text-[1.55rem] font-semibold leading-[1.15] text-[#ffb7cf]">
+            <div className="max-w-[280px] rounded-[18px] border border-white/18 bg-neutral-950/62 px-5 py-5 text-center text-white shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-md">
+              <p className="font-heading text-[16px] font-semibold leading-[1.25] text-[#ffb7cf] sm:text-[1.55rem] sm:leading-[1.15]">
                 {pageContent.rotateMessage}
               </p>
             </div>
@@ -405,25 +571,30 @@ function AboutPage() {
               <button
                 type="button"
                 onClick={showPreviousSlide}
-                className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 bg-primary-600 text-2xl font-semibold leading-none text-white shadow-[0_10px_26px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-700"
+                className={`inline-flex shrink-0 items-center justify-center rounded-full border border-white/30 bg-primary-600 font-semibold leading-none text-white shadow-[0_10px_26px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-700 ${
+                  isMobileLandscape ? 'h-10 w-10 text-[1.35rem]' : 'h-10 w-10 text-[1.35rem] sm:h-12 sm:w-12 sm:text-2xl'
+                }`}
                 aria-label={language === 'pt' ? 'Imagem anterior' : 'Previous image'}
               >
                 &#8249;
               </button>
 
-              <div className="max-w-[620px] rounded-[16px] border border-white/18 bg-neutral-950/58 px-3 py-3 text-center text-white shadow-[0_16px_40px_rgba(0,0,0,0.24)] backdrop-blur-sm sm:rounded-[18px] sm:px-5 sm:py-4">
-                <h2 className="font-heading text-[1.05rem] font-semibold text-[#ffb7cf] sm:text-[1.35rem]">
+              <div className={`max-w-[620px] border border-white/18 bg-neutral-950/58 text-center text-white shadow-[0_16px_40px_rgba(0,0,0,0.24)] backdrop-blur-sm ${
+                isMobileLandscape ? 'min-w-0 rounded-[16px] px-3 py-2' : 'rounded-[16px] px-2.5 py-2.5 sm:rounded-[18px] sm:px-5 sm:py-4'
+              }`}>
+                <h2 className={`font-heading font-semibold text-[#ffb7cf] ${
+                  isMobileLandscape ? 'whitespace-nowrap text-[14px] leading-[1.25]' : 'text-[14px] sm:text-[1.35rem]'
+                }`}>
                   {activeSlideContent.label}
                 </h2>
-                <p className="mt-1.5 text-[0.82rem] leading-[1.45] text-white/84 sm:mt-2 sm:text-sm sm:leading-[1.55]">
-                  {activeSlideContent.description}
-                </p>
               </div>
 
               <button
                 type="button"
                 onClick={showNextSlide}
-                className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 bg-secondary-500 text-2xl font-semibold leading-none text-white shadow-[0_10px_26px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary-600"
+                className={`inline-flex shrink-0 items-center justify-center rounded-full border border-white/30 bg-secondary-500 font-semibold leading-none text-white shadow-[0_10px_26px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary-600 ${
+                  isMobileLandscape ? 'h-10 w-10 text-[1.35rem]' : 'h-10 w-10 text-[1.35rem] sm:h-12 sm:w-12 sm:text-2xl'
+                }`}
                 aria-label={language === 'pt' ? 'Próxima imagem' : 'Next image'}
               >
                 &#8250;
@@ -479,7 +650,7 @@ function AboutPage() {
 
             <div className="overflow-hidden rounded-[10px] shadow-[0_18px_48px_rgba(21,18,17,0.12)]">
               <img
-                src={schoolImage}
+                src={oldFacadeImage}
                 alt={language === 'pt' ? 'Ambiente da We School' : 'We School environment'}
                 className="h-[260px] w-full object-cover sm:h-[340px] lg:h-[380px]"
               />
@@ -548,20 +719,20 @@ function AboutPage() {
                 return (
                   <article
                     key={pillar.title}
-                    className={`rounded-[8px] border-t-2 p-6 text-left shadow-[0_12px_28px_rgba(20,16,15,0.06)] transition-colors duration-300 ${
+                    className={`rounded-[8px] border-t-2 p-5 text-left shadow-[0_12px_28px_rgba(20,16,15,0.06)] transition-colors duration-300 sm:p-6 ${
                       isDark ? 'bg-white/[0.03]' : 'bg-white'
                     } ${accentBorderClass}`}
                   >
                     <div
-                      className={`inline-flex h-10 w-10 items-center justify-center rounded-full ${
+                      className={`inline-flex h-9 w-9 items-center justify-center rounded-full sm:h-10 sm:w-10 ${
                         isDark ? 'bg-white/6' : 'bg-neutral-100'
                       } ${accentClass}`}
                     >
-                      <MaskIcon src={pillarIcons[index]} className="h-5 w-5" />
+                      <MaskIcon src={pillarIcons[index]} className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
 
                     <h3
-                      className={`mt-5 font-heading text-[1.6rem] font-semibold ${
+                      className={`mt-4 font-heading text-[16px] font-semibold sm:mt-5 sm:text-[1.6rem] ${
                         isDark ? 'text-white' : 'text-neutral-950'
                       }`}
                     >
@@ -570,7 +741,7 @@ function AboutPage() {
 
                     {'description' in pillar ? (
                       <p
-                        className={`mt-4 text-[0.98rem] leading-[1.65] ${
+                        className={`mt-3 text-[12px] leading-[1.65] sm:mt-4 sm:text-[0.98rem] ${
                           isDark ? 'text-white/72' : 'text-neutral-700'
                         }`}
                       >
@@ -578,7 +749,7 @@ function AboutPage() {
                       </p>
                     ) : (
                       <div
-                        className={`mt-4 space-y-3 text-[0.98rem] ${
+                        className={`mt-3 space-y-2.5 text-[12px] sm:mt-4 sm:space-y-3 sm:text-[0.98rem] ${
                           isDark ? 'text-white/72' : 'text-neutral-700'
                         }`}
                       >

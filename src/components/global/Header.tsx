@@ -63,13 +63,13 @@ function Header() {
 
   return (
     <header
-      className={`absolute inset-x-0 top-0 z-30 py-4 transition-all duration-500 sm:py-7 ${
+      className={`absolute inset-x-0 top-0 z-30 py-3 transition-all duration-500 sm:py-7 ${
         isTemporarilyHidden ? 'pointer-events-none opacity-0' : 'opacity-100'
       }`}
     >
       <div className="relative z-10 mx-auto w-full max-w-[1760px] px-4 sm:px-6 lg:px-[48px]">
         <div
-          className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-3 shadow-[0_14px_44px_rgba(25,25,25,0.14)] transition-all duration-300 sm:px-5 lg:px-7 ${
+          className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-2.5 shadow-[0_14px_44px_rgba(25,25,25,0.14)] transition-all duration-300 sm:px-5 sm:py-3 lg:px-7 ${
             isDark
               ? 'border-white/8 bg-[#181818] text-white'
               : 'border-white/70 bg-white text-neutral-800'
@@ -92,9 +92,10 @@ function Header() {
                       navItemWidths[link.path as keyof typeof navItemWidths]
                     }`}
                   >
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) =>
+                     <NavLink
+                       to={link.path}
+                       viewTransition
+                       className={({ isActive }) =>
                         [
                           'relative inline-flex justify-center pb-1 text-center text-[0.95rem] font-body font-semibold transition-all duration-300',
                           isActive
@@ -135,12 +136,13 @@ function Header() {
                 theme={theme}
                 onToggle={() => setTheme(isDark ? 'light' : 'dark')}
               />
-              <a
-                href="/contato"
+              <NavLink
+                to="/contato"
+                viewTransition
                 className="inline-flex min-h-11 w-[242px] items-center justify-center rounded-full bg-primary-600 px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-700"
               >
                 {labels.cta}
-              </a>
+              </NavLink>
             </div>
 
             <div className="flex items-center gap-2 xl:hidden">
@@ -172,10 +174,11 @@ function Header() {
                     <li key={link.path}>
                       <NavLink
                         to={link.path}
+                        viewTransition
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={({ isActive }) =>
                           [
-                            'flex min-h-11 items-center rounded-xl px-4 text-sm font-semibold transition-all duration-300',
+                            'flex min-h-10 items-center rounded-xl px-4 text-[12px] font-semibold transition-all duration-300 sm:min-h-11 sm:text-sm',
                             isActive
                               ? isDark
                                 ? 'bg-white/10 text-[#f7ced9]'
@@ -199,12 +202,13 @@ function Header() {
                   onChange={setLanguage}
                   theme={theme}
                 />
-                <a
-                  href="/contato"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary-600 px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-700"
+                <NavLink
+                  to="/contato"
+                  viewTransition
+                  className="inline-flex min-h-10 items-center justify-center rounded-full bg-primary-600 px-6 text-[12px] font-semibold text-white transition-all duration-300 hover:bg-primary-700 sm:min-h-11 sm:text-sm"
                 >
                   {labels.cta}
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>

@@ -65,10 +65,10 @@ function BeyondClassroomSection() {
         <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-[540px]">
-              <h2 className="font-heading text-[2rem] font-semibold text-white sm:text-[2.2rem]">
+              <h2 className="font-heading text-[16px] font-semibold text-white sm:text-[2.2rem]">
                 {sectionContent.title}
               </h2>
-              <p className="mt-4 max-w-[460px] text-[0.98rem] leading-[1.6] text-white/90">
+              <p className="mt-4 max-w-[460px] text-[12px] leading-[1.6] text-white/90 sm:text-[0.98rem]">
                 {sectionContent.description}
               </p>
             </div>
@@ -100,8 +100,8 @@ function BeyondClassroomSection() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="font-heading text-[1.55rem] font-semibold text-white">{card.title}</h3>
-                  <p className="mt-2 text-[0.9rem] leading-[1.55] text-white/82">{card.description}</p>
+                  <h3 className="font-heading text-[16px] font-semibold text-white sm:text-[1.55rem]">{card.title}</h3>
+                  <p className="mt-2 text-[12px] leading-[1.55] text-white/82 sm:text-[0.9rem]">{card.description}</p>
                 </div>
               </article>
             ))}

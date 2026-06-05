@@ -42,24 +42,24 @@ function AboutSchoolSection() {
 
           <div className="max-w-[640px]">
             <h2
-              className={`font-heading text-[2rem] font-semibold sm:text-[2.3rem] ${
+              className={`font-heading text-[16px] font-semibold sm:text-[2.3rem] ${
                 isDark ? 'text-[#ffb7cf]' : 'text-primary-600'
               }`}
             >
               {sectionContent.title}
             </h2>
 
-            <p className={`mt-5 text-[0.98rem] leading-[1.7] ${isDark ? 'text-white/80' : 'text-neutral-700'}`}>
+            <p className={`mt-5 text-[12px] leading-[1.7] sm:text-[0.98rem] ${isDark ? 'text-white/80' : 'text-neutral-700'}`}>
               {sectionContent.paragraphOne}
             </p>
 
-            <p className={`mt-5 text-[0.98rem] leading-[1.7] ${isDark ? 'text-white/80' : 'text-neutral-700'}`}>
+            <p className={`mt-5 text-[12px] leading-[1.7] sm:text-[0.98rem] ${isDark ? 'text-white/80' : 'text-neutral-700'}`}>
               {sectionContent.paragraphTwo}
             </p>
 
             <Link
               to="/sobre"
-              className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-[10px] border px-5 text-sm font-semibold transition-all duration-300 ${
+              className={`mt-8 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] border px-5 text-sm font-semibold transition-all duration-300 sm:mx-0 sm:w-auto ${
                 isDark
                   ? 'border-[#f4b6c9] text-[#f4b6c9] hover:bg-white/6'
                   : 'border-primary-300 text-primary-600 hover:bg-primary-50'
