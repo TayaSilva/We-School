@@ -32,7 +32,7 @@ const content = {
     description:
       'Formando líderes globais através de uma educação acolhedora e inspiradora.',
     navigation: 'Navegação',
-    legal: 'Legal',
+    legal: 'Institucional',
     contact: 'Contato',
     links: [
       { label: 'Home', to: '/' },
@@ -40,7 +40,7 @@ const content = {
       { label: 'Ensino', to: '/ensino' },
       { label: 'Atividades', to: '/atividades' },
     ],
-    legalLinks: ['Privacy Policy', 'Termos de Uso', 'Compliance'],
+    legalLinks: ['Contato', 'Política de Privacidade', 'Trabalhe Conosco', 'Portal dos Pais'],
     address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contato@weschool.com.br',
@@ -55,7 +55,7 @@ const content = {
     description:
       'Forming global leaders through a welcoming and inspiring education.',
     navigation: 'Navigation',
-    legal: 'Legal',
+    legal: 'Institutional',
     contact: 'Contact',
     links: [
       { label: 'Home', to: '/' },
@@ -63,7 +63,7 @@ const content = {
       { label: 'Teaching', to: '/ensino' },
       { label: 'Activities', to: '/atividades' },
     ],
-    legalLinks: ['Privacy Policy', 'Terms of Use', 'Compliance'],
+    legalLinks: ['Contact', 'Privacy Policy', 'Careers', 'Parent Portal'],
     address: 'Av Tucuruvi, 2971 - São Paulo - SP',
     phone: '(11) 4002-8922',
     email: 'contact@weschool.com.br',
@@ -100,14 +100,15 @@ function Footer() {
               : 'bg-[radial-gradient(circle,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(135deg,#a00083_0%,#9b2aa1_48%,#ff6b13_100%)] [background-size:22px_22px,100%_100%]'
           }`}
         >
-          <h2 className="font-heading text-[1.35rem] font-semibold text-white">
+          <h2 className="font-heading text-[16px] font-semibold text-white sm:text-[1.35rem]">
             {footerContent.ctaTitle}
           </h2>
-          <p className="mx-auto mt-4 max-w-[720px] text-[0.95rem] font-medium leading-[1.55] text-white/92">
+          <p className="mx-auto mt-4 max-w-[720px] text-[12px] font-medium leading-[1.55] text-white/92 sm:text-[0.95rem]">
             {footerContent.ctaText}
           </p>
           <Link
             to="/contato"
+            viewTransition
             className="mt-8 inline-flex min-h-12 min-w-[178px] items-center justify-center rounded-[10px] bg-white px-6 text-sm font-semibold text-primary-600 shadow-[0_10px_24px_rgba(20,20,20,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-50 hover:text-primary-700"
           >
             {footerContent.ctaButton}
@@ -118,11 +119,12 @@ function Footer() {
           <div>
             <Link
               to="/"
-              className={`font-heading text-[1.35rem] font-bold ${headingClass}`}
+              viewTransition
+               className={`font-heading text-[16px] font-bold sm:text-[1.35rem] ${headingClass}`}
             >
               We School
             </Link>
-            <p className={`mt-5 max-w-[310px] text-base leading-[1.65] ${textClass}`}>
+            <p className={`mt-5 max-w-[310px] text-[12px] leading-[1.65] sm:text-base ${textClass}`}>
               {footerContent.description}
             </p>
 
@@ -145,7 +147,7 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className={`text-base font-semibold ${headingClass}`}>
+            <h3 className={`text-[16px] font-semibold sm:text-base ${headingClass}`}>
               {footerContent.navigation}
             </h3>
             <nav className="mt-6 flex flex-col gap-4">
@@ -153,7 +155,8 @@ function Footer() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-base transition-colors duration-300 ${linkClass}`}
+                  viewTransition
+                  className={`text-[12px] transition-colors duration-300 sm:text-base ${linkClass}`}
                 >
                   {link.label}
                 </Link>
@@ -162,12 +165,12 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className={`text-base font-semibold ${headingClass}`}>
+            <h3 className={`text-[16px] font-semibold sm:text-base ${headingClass}`}>
               {footerContent.legal}
             </h3>
             <div className="mt-6 flex flex-col gap-4">
               {footerContent.legalLinks.map((item) => (
-                <span key={item} className={`text-base ${textClass}`}>
+                <span key={item} className={`text-[12px] sm:text-base ${textClass}`}>
                   {item}
                 </span>
               ))}
@@ -175,13 +178,13 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className={`text-base font-semibold ${headingClass}`}>
+            <h3 className={`text-[16px] font-semibold sm:text-base ${headingClass}`}>
               {footerContent.contact}
             </h3>
             <address className="mt-6 flex flex-col gap-5 not-italic">
               <a
                 href="https://maps.google.com/?q=Av+Tucuruvi,+2971,+Sao+Paulo"
-                className={`group flex gap-4 text-base leading-[1.55] transition-colors duration-300 ${linkClass}`}
+                className={`group flex gap-4 text-[12px] leading-[1.55] transition-colors duration-300 sm:text-base ${linkClass}`}
               >
                 <SvgIcon
                   svg={locationSvg}
@@ -191,7 +194,7 @@ function Footer() {
               </a>
               <a
                 href="tel:+551140028922"
-                className={`group flex items-center gap-4 text-base transition-colors duration-300 ${linkClass}`}
+                className={`group flex items-center gap-4 text-[12px] transition-colors duration-300 sm:text-base ${linkClass}`}
               >
                 <SvgIcon
                   svg={phoneSvg}
@@ -201,7 +204,7 @@ function Footer() {
               </a>
               <a
                 href={`mailto:${footerContent.email}`}
-                className={`group flex items-center gap-4 text-base transition-colors duration-300 ${linkClass}`}
+                className={`group flex items-center gap-4 text-[12px] transition-colors duration-300 sm:text-base ${linkClass}`}
               >
                 <SvgIcon
                   svg={emailSvg}

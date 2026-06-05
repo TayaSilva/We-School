@@ -109,7 +109,7 @@ function HeroCarousel() {
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1760px] flex-col px-4 pb-8 pt-[122px] sm:px-6 sm:pb-10 sm:pt-[180px] lg:px-[48px]">
         <div className="flex flex-1 items-center">
-          <div className="flex max-w-[680px] flex-col">
+          <div className="flex w-full max-w-[680px] flex-col">
             <h1
               className={`min-h-[148px] max-w-[320px] font-heading text-[30px] font-bold leading-[0.98] tracking-normal transition-colors duration-300 sm:min-h-[118px] sm:max-w-[520px] sm:text-[40px] lg:min-h-[138px] lg:max-w-[660px] lg:text-[48px] ${
                 isDark ? 'text-[#f6b9cb]' : 'text-primary-700'
@@ -120,16 +120,16 @@ function HeroCarousel() {
 
             <p
               className={`mt-5 min-h-[164px] max-w-[320px] text-[17px] leading-[1.6] transition-colors duration-300 sm:mt-8 sm:min-h-[124px] sm:max-w-[540px] sm:text-[1.2rem] lg:min-h-[180px] lg:max-w-[610px] lg:text-[1.55rem] ${
-                isDark ? 'text-white/72' : 'text-neutral-800/85'
+                isDark ? 'text-white/88 sm:text-white/72' : 'text-neutral-950 sm:text-neutral-800/85'
               }`}
             >
               {activeSlideContent.description}
             </p>
 
-            <div className="mt-8 flex min-h-[124px] flex-col gap-3 sm:mt-11 sm:min-h-[56px] sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-8 flex min-h-[100px] w-full flex-col items-center gap-2.5 sm:mt-11 sm:min-h-[56px] sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="/sobre"
-                className={`inline-flex min-h-[56px] w-full items-center justify-center rounded-[14px] border px-6 text-center text-[0.95rem] font-semibold transition-all duration-300 sm:min-w-[220px] sm:px-7 sm:text-base ${
+                className={`inline-flex min-h-[44px] w-full items-center justify-center rounded-[12px] border px-4 text-center text-[0.8rem] font-semibold transition-all duration-300 sm:min-h-[56px] sm:min-w-[220px] sm:rounded-[14px] sm:px-7 sm:text-base ${
                   isDark
                     ? 'border-[#f0a8bf] bg-transparent text-[#f7cad7] hover:bg-white/6'
                     : 'border-tertiary-500 bg-white/20 text-tertiary-700 backdrop-blur-[1px] hover:bg-white/35'
@@ -139,7 +139,7 @@ function HeroCarousel() {
               </a>
               <a
                 href="/contato"
-                className="inline-flex min-h-[56px] w-full items-center justify-center rounded-[14px] bg-primary-600 px-6 text-center text-[0.95rem] font-semibold text-white transition-all duration-300 hover:bg-primary-700 sm:min-w-[196px] sm:px-7 sm:text-base"
+                className="inline-flex min-h-[44px] w-full items-center justify-center rounded-[12px] bg-primary-600 px-4 text-center text-[0.8rem] font-semibold text-white transition-all duration-300 hover:bg-primary-700 sm:min-h-[56px] sm:min-w-[196px] sm:rounded-[14px] sm:px-7 sm:text-base"
               >
                 {activeButtons.primaryButton}
               </a>
@@ -147,7 +147,7 @@ function HeroCarousel() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3 pb-2 sm:pb-6">
+        <div className="mt-5 flex items-center justify-center gap-3 pb-2 sm:mt-0 sm:pb-6">
           {slides.map((slide, index) => (
             <button
               key={slide.id}

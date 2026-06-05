@@ -6,7 +6,7 @@ import { useTheme } from '../hooks/useTheme'
 function MainLayout() {
   const { theme } = useTheme()
   const { pathname } = useLocation()
-  const isHome = pathname === '/'
+  const hasTopHero = pathname === '/' || pathname === '/sobre'
 
   return (
     <div
@@ -15,7 +15,7 @@ function MainLayout() {
       }`}
     >
       <Header />
-      <main className={isHome ? '' : 'pt-[116px] sm:pt-[132px] lg:pt-[140px]'}>
+      <main className={hasTopHero ? '' : 'pt-[116px] sm:pt-[132px] lg:pt-[140px]'}>
         <Outlet />
       </main>
       <Footer />
