@@ -69,10 +69,10 @@ function Header() {
     >
       <div className="relative z-10 mx-auto w-full max-w-[1760px] px-4 sm:px-6 lg:px-[48px]">
         <div
-          className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-2.5 shadow-[0_14px_44px_rgba(25,25,25,0.14)] transition-all duration-300 sm:px-5 sm:py-3 lg:px-7 ${
+          className={`mx-auto max-w-[1600px] rounded-[22px] border px-4 py-2.5 transition-all duration-300 sm:px-5 sm:py-3 lg:px-7 ${
             isDark
-              ? 'border-white/8 bg-[#181818] text-white'
-              : 'border-white/70 bg-white text-neutral-800'
+              ? 'border-white/6 bg-[#171717] text-white'
+              : 'border-white/70 bg-white text-neutral-800 shadow-[0_14px_44px_rgba(25,25,25,0.14)]'
           }`}
         >
           <div className="flex items-center justify-between gap-4 xl:grid xl:grid-cols-[280px_minmax(0,1fr)_360px] xl:items-center xl:gap-6">
