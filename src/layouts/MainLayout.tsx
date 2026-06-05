@@ -7,7 +7,8 @@ function MainLayout() {
   const { theme } = useTheme()
   const { pathname } = useLocation()
   const hasTopHero =
-    pathname === '/' || pathname === '/sobre' || pathname === '/contato' || pathname === '/atividades'
+    pathname === '/' || pathname === '/sobre' || pathname === '/ensino' || pathname === '/contato' || pathname === '/atividades'
+  const showFooterCta = pathname === '/'
 
   return (
     <div
@@ -19,7 +20,7 @@ function MainLayout() {
       <main className={hasTopHero ? '' : 'pt-[116px] sm:pt-[132px] lg:pt-[140px]'}>
         <Outlet />
       </main>
-      <Footer />
+      <Footer showCta={showFooterCta} />
     </div>
   )
 }
